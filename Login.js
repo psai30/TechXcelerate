@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // Import Link
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Login = () => {
@@ -42,21 +42,17 @@ const Login = () => {
               </div>
 
               {role === "buyer" && (
-                <>
-                  <div className="mb-3">
-                    <label className="form-label">Username</label>
-                    <input type="text" className="form-control" name="username" value={formData.username} onChange={handleChange} required />
-                  </div>
-                </>
+                <div className="mb-3">
+                  <label className="form-label">Username</label>
+                  <input type="text" className="form-control" name="username" value={formData.username} onChange={handleChange} required />
+                </div>
               )}
 
               {role === "seller" && (
-                <>
-                  <div className="mb-3">
-                    <label className="form-label">Name</label>
-                    <input type="text" className="form-control" name="name" value={formData.name} onChange={handleChange} required />
-                  </div>
-                </>
+                <div className="mb-3">
+                  <label className="form-label">Name</label>
+                  <input type="text" className="form-control" name="name" value={formData.name} onChange={handleChange} required />
+                </div>
               )}
 
               <div className="mb-3">
@@ -66,8 +62,10 @@ const Login = () => {
 
               <button type="submit" className="btn btn-primary w-100">Login</button>
             </form>
+
+            {/* Fix: Use Link instead of <a> */}
             <p className="text-center mt-3">
-              Don't have an account? <a href="/">Sign Up here</a>
+              Don't have an account? <Link to="/signup">Sign Up here</Link>
             </p>
           </div>
         </div>
